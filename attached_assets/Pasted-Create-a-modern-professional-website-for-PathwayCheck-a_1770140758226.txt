@@ -1,0 +1,88 @@
+Create a modern, professional website for PathwayCheck - a web app that helps high school baseball recruits evaluate playing-time opportunities at colleges.
+
+COLOR SCHEME:
+- Black (#0a0a0a) as primary background
+- Red (#dc2626) for CTAs and accents
+- White (#ffffff) for text
+- Blue (#3b82f6) for hints/secondary accents
+
+DESIGN STYLE:
+- Bold, athletic aesthetic with clean typography
+- Use "Outfit" font for body text and "Red Hat Display" for headings
+- Modern, high-contrast design with smooth animations
+- Dramatic hover effects and transitions
+
+SECTIONS NEEDED:
+
+1. NAVIGATION (fixed top):
+   - Logo "PathwayCheck" on left
+   - Links: The Problem, Solution, How It Works
+   - Red "Get Started" button on right
+
+2. HERO SECTION:
+   - Full-screen with baseball field background image (dark overlay)
+   - Eyebrow text: "For High School Baseball Recruits" in blue
+   - Large headline: "See Your Playing Time Path, Make Your Best Fit" (with "Playing Time Path" in red gradient)
+   - Subtitle explaining the product
+   - Two CTAs: Red "Check Your Pathway" button and white outlined "See How It Works" button
+   - Stats bar below with 3 metrics: "70% Transfer Due to Poor Fit", "2min To Check Your Pathway", "1 Decision You Won't Regret"
+
+3. PROBLEM SECTION:
+   - Eyebrow: "The Problem" in red
+   - Heading: "Money's Easy to Understand. Fit Feels Like Guessing."
+   - Description paragraph
+   - Card with baseball stadium background showing "The Root Cause"
+   - Quote card: "Money's easy to understand—fit feels like guessing." - Jake Martinez
+
+4. SOLUTION SECTION:
+   - Eyebrow: "The Solution" in red
+   - Heading: "Turn Roster Confusion Into Crystal-Clear Pathway Metrics"
+   - Three pillar cards side-by-side:
+     * Card 1: "Pathway Snapshot" - with number "01" in blue
+     * Card 2: "Competition Index" - with number "02" in blue
+     * Card 3: "Verification Questions" - with number "03" in blue
+   - Each card has description and checkmark feature
+
+5. HOW IT WORKS SECTION:
+   - Eyebrow: "How It Works" in red
+   - Heading: "Three Simple Steps to Clarity"
+   - Three steps with circular numbers (1, 2, 3) in red gradient:
+     * Enter Your Info
+     * Get Your Metrics
+     * Verify the Plan
+
+6. VISUAL FEATURES SECTION:
+   - Three large image cards with baseball photos:
+     * Baseball batter (Know Your Competition)
+     * Baseball pitcher (Map Your Timeline)
+     * Baseball and glove (Ask the Right Questions)
+   - Images zoom on hover with red overlay gradient
+
+7. CTA SECTION:
+   - Baseball game background
+   - Large heading: "Ready to See Your Real Path?"
+   - Description text
+   - Red "Check Your Pathway Now" button
+
+8. TESTIMONIALS SECTION:
+   - Eyebrow: "Success Stories" in red
+   - Heading: "Real Players, Real Results"
+   - Three testimonial cards with baseball player images:
+     * Marcus T. - RHP, Class of 2025
+     * Devon L. - C, Class of 2024
+     * Jake M. - SS, Class of 2025
+
+9. FOOTER:
+   - Dark black background
+   - Four columns: Brand info, Product links, Resources, Company
+   - Red accents for section headings
+   - Copyright text at bottom
+
+IMPORTANT FEATURES:
+- Smooth scroll animations that reveal elements as you scroll
+- Hover effects on all cards (lift up, change border to red)
+- Red glow shadows on buttons
+- Subtle grid pattern overlay on background
+- All baseball-related stock images from Unsplash
+- Fully responsive for mobile
+- Modern gradient effects on key text elements
