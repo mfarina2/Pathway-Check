@@ -4,9 +4,9 @@ import heroField from "@/assets/images/hero-field.jpg";
 import featureBatter from "@/assets/images/feature-batter.jpg";
 import featurePitcher from "@/assets/images/feature-pitcher.jpg";
 import featureGlove from "@/assets/images/feature-glove.jpg";
-import tMarcus from "@/assets/images/testimonial-marcus.jpg";
-import tDevon from "@/assets/images/testimonial-devon.jpg";
-import tJake from "@/assets/images/testimonial-jake.jpg";
+import tMarcus from "@/assets/images/testimonial-marcus.png";
+import tDevon from "@/assets/images/testimonial-devon.png";
+import tJake from "@/assets/images/testimonial-jake.png";
 
 function useRevealOnScroll() {
   useEffect(() => {
