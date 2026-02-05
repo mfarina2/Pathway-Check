@@ -182,7 +182,7 @@ function Testimonial({
           data-testid={`img-testimonial-${id}`}
           src={img}
           alt={name}
-          className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.06]"
+          className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-[1.06]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/10" />
       </div>
