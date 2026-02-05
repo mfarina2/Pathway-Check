@@ -1,4 +1,5 @@
 import { useEffect, useMemo } from "react";
+import { useLocation } from "wouter";
 import { ArrowRight, Check, ChevronRight } from "lucide-react";
 import heroField from "@/assets/images/hero-field.jpg";
 import featureBatter from "@/assets/images/feature-batter.jpg";
@@ -209,6 +210,7 @@ function Testimonial({
 }
 
 export default function Home() {
+  const [, navigate] = useLocation();
   useRevealOnScroll();
 
   const navLinks = useMemo(
@@ -258,7 +260,7 @@ export default function Home() {
               <div className="flex items-center gap-2">
                 <button
                   data-testid="button-nav-get-started"
-                  onClick={() => scrollToId("cta")}
+                  onClick={() => navigate("/check")}
                   className="pc-red-glow inline-flex h-10 items-center justify-center rounded-full bg-red-600 px-4 text-sm font-semibold text-white transition hover:bg-red-500 active:translate-y-px"
                 >
                   Get Started
@@ -310,7 +312,7 @@ export default function Home() {
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                   <button
                     data-testid="button-hero-primary"
-                    onClick={() => scrollToId("cta")}
+                    onClick={() => navigate("/check")}
                     className="pc-red-glow inline-flex h-12 items-center justify-center rounded-full bg-red-600 px-6 text-sm font-semibold text-white transition hover:bg-red-500 active:translate-y-px"
                   >
                     Check Your Pathway
@@ -382,7 +384,7 @@ export default function Home() {
 
                   <button
                     data-testid="button-hero-card-cta"
-                    onClick={() => scrollToId("cta")}
+                    onClick={() => navigate("/check")}
                     className="mt-6 w-full pc-red-glow inline-flex h-11 items-center justify-center rounded-full bg-red-600 text-sm font-semibold text-white transition hover:bg-red-500 active:translate-y-px"
                   >
                     Check Your Pathway Now
@@ -617,7 +619,7 @@ export default function Home() {
                 <div className="lg:col-span-4">
                   <button
                     data-testid="button-cta-primary"
-                    onClick={() => scrollToId("cta")}
+                    onClick={() => navigate("/check")}
                     className="pc-red-glow w-full inline-flex h-12 items-center justify-center rounded-full bg-red-600 px-6 text-sm font-semibold text-white transition hover:bg-red-500 active:translate-y-px"
                   >
                     Check Your Pathway Now
