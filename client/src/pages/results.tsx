@@ -2,6 +2,8 @@ import { useParams, useLocation } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import { ArrowLeft, ChevronRight, Clock, Target, TrendingUp, Users, AlertCircle, Check, HelpCircle, BarChart3 } from "lucide-react";
 import type { PathwayCheck, PathwayResults } from "@shared/schema";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 function MetricCard({
   icon: Icon,
@@ -110,15 +112,9 @@ export default function Results() {
         <div className="absolute bottom-0 right-1/4 h-80 w-80 rounded-full bg-blue-500/10 blur-[100px]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-4xl px-4 py-12 sm:py-16">
-        <button
-          data-testid="link-back-home"
-          onClick={() => navigate("/")}
-          className="mb-8 flex items-center gap-2 text-sm text-white/60 transition hover:text-white"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          Back to Home
-        </button>
+      <Header />
+
+      <div className="relative z-10 mx-auto max-w-4xl px-4 py-12 pt-24 sm:py-16 sm:pt-28">
 
         <div className="mb-8">
           <h1 data-testid="text-results-title" className="font-display text-3xl font-bold sm:text-4xl">
@@ -255,6 +251,8 @@ export default function Results() {
           </button>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }

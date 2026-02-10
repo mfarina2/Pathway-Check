@@ -18,20 +18,31 @@ Preferred communication style: Simple, everyday language.
 - **UI Components**: shadcn/ui component library (New York style) with Radix UI primitives
 - **Build Tool**: Vite with custom plugins for Replit integration
 
-The frontend follows a page-based architecture with three main routes:
-- Home page (`/`) - Marketing landing page
-- Pathway form (`/check`) - Multi-step form for user input
-- Results page (`/results/:id`) - Displays pathway analysis
+### Pages
+- Home page (`/`) - Marketing landing page with hero, problem/solution, testimonials
+- Pathway form (`/check`) - Multi-step form for user input (3 steps: personal info, baseball profile, target schools)
+- Results page (`/results/:id`) - Displays personalized pathway analysis
+- Pricing page (`/pricing`) - Three pricing tiers (Free, Recruit Plan, Serious Commit)
+- Sample Report page (`/sample-report`) - Example pathway analysis for Michael Farina
+- FAQ page (`/faq`) - Categorized questions and answers (6 categories)
+- About page (`/about`) - Mission, story, team, and approach
+- How It Works page (`/how-it-works`) - Detailed 3-step walkthrough
+- Resources page (`/resources`) - Blog with 5 sample articles and category filtering
+- Contact page (`/contact`) - Contact form with name, email, subject, message
+
+### Shared Components
+- `client/src/components/layout/Header.tsx` - Fixed navigation header with mobile hamburger menu
+- `client/src/components/layout/Footer.tsx` - Site footer with product/resources/company links
+- `client/src/components/layout/PageWrapper.tsx` - Page wrapper with Header, Footer, and background effects
 
 ### Backend Architecture
 - **Framework**: Express.js 5 with TypeScript
 - **API Pattern**: REST API with JSON responses
 - **Server**: Node.js with HTTP server (supports both development and production modes)
 
-The server handles:
-- Static file serving in production
-- Vite dev server integration in development
-- API endpoints for pathway check creation and retrieval
+API Endpoints:
+- `POST /api/pathway-check` - Create a new pathway analysis
+- `GET /api/pathway-check/:id` - Retrieve a pathway analysis by ID
 
 ### Data Storage
 - **Database**: PostgreSQL via `pg` driver
@@ -40,17 +51,15 @@ The server handles:
 
 Database tables:
 - `users` - Basic user authentication (id, username, password)
-- `pathway_checks` - Pathway analysis records with results stored as JSONB
+- `pathway_checks` - Pathway analysis records (firstName, lastName, email, position, classYear, targetSchools, currentLevel, goals, results as JSONB)
 
 ### Key Design Decisions
 
 1. **Monorepo Structure**: Client and server code coexist with shared types in `shared/` directory, enabling type safety across the stack.
-
 2. **Schema-First Validation**: Using `drizzle-zod` to generate Zod schemas from database schema, ensuring consistent validation.
-
-3. **Dark Theme Design**: The application uses a dark, athletic-themed color scheme (black background, red accents, blue hints) matching the baseball/sports aesthetic.
-
+3. **Dark Theme Design**: Dark athletic-themed color scheme (black #0a0a0a background, red #dc2626 accents, blue #3b82f6 hints). Custom utility classes prefixed with "pc-" (pc-card, pc-reveal, pc-text-gradient, pc-red-glow).
 4. **Results Generation**: Pathway results are computed server-side based on position competition data and level multipliers, stored as JSONB for flexibility.
+5. **Custom Fonts**: Outfit (body) and Red Hat Display (headings) via Google Fonts.
 
 ## External Dependencies
 

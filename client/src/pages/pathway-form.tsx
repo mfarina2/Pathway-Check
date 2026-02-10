@@ -4,6 +4,8 @@ import { useMutation } from "@tanstack/react-query";
 import { ArrowLeft, ArrowRight, Check, Loader2, Sparkles } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
 import type { PathwayCheck } from "@shared/schema";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 const positions = [
   { value: "P", label: "Pitcher" },
@@ -96,15 +98,9 @@ export default function PathwayForm() {
         <div className="absolute bottom-0 right-1/4 h-80 w-80 rounded-full bg-blue-500/10 blur-[100px]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-2xl px-4 py-12 sm:py-16">
-        <button
-          data-testid="link-back-home"
-          onClick={() => navigate("/")}
-          className="mb-8 flex items-center gap-2 text-sm text-white/60 transition hover:text-white"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          Back to Home
-        </button>
+      <Header />
+
+      <div className="relative z-10 mx-auto max-w-2xl px-4 py-12 pt-24 sm:py-16 sm:pt-28">
 
         <div className="mb-8 text-center">
           <h1 data-testid="text-form-title" className="font-display text-3xl font-bold sm:text-4xl">
@@ -351,6 +347,8 @@ export default function PathwayForm() {
           )}
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }

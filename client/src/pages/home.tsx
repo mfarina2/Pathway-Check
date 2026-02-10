@@ -1,6 +1,8 @@
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import { useLocation } from "wouter";
 import { ArrowRight, Check, ChevronRight } from "lucide-react";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 import heroField from "@/assets/images/hero-field.jpg";
 import featureBatter from "@/assets/images/feature-batter.jpg";
 import featurePitcher from "@/assets/images/feature-pitcher.jpg";
@@ -213,15 +215,6 @@ export default function Home() {
   const [, navigate] = useLocation();
   useRevealOnScroll();
 
-  const navLinks = useMemo(
-    () => [
-      { label: "The Problem", id: "problem" },
-      { label: "Solution", id: "solution" },
-      { label: "How It Works", id: "how" },
-    ],
-    [],
-  );
-
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white">
       <div aria-hidden className="pointer-events-none fixed inset-0 -z-10">
@@ -231,45 +224,7 @@ export default function Home() {
         <div className="absolute -top-10 right-[-120px] h-[420px] w-[420px] rounded-full bg-blue-500/10 blur-3xl" />
       </div>
 
-      <header className="fixed inset-x-0 top-0 z-50">
-        <div className="border-b border-white/10 bg-black/55 backdrop-blur-xl supports-[backdrop-filter]:bg-black/45">
-          <div className="pc-container">
-            <div className="flex h-16 items-center justify-between">
-              <button
-                data-testid="button-logo"
-                onClick={() => scrollToId("top")}
-                className="group inline-flex items-center gap-2 font-semibold tracking-tight"
-              >
-                <span className="text-white">Pathway</span>
-                <span className="pc-text-gradient">Check</span>
-              </button>
-
-              <nav className="hidden items-center gap-7 md:flex">
-                {navLinks.map((l) => (
-                  <button
-                    key={l.id}
-                    data-testid={`link-nav-${l.id}`}
-                    onClick={() => scrollToId(l.id)}
-                    className="text-sm text-white/78 transition hover:text-white"
-                  >
-                    {l.label}
-                  </button>
-                ))}
-              </nav>
-
-              <div className="flex items-center gap-2">
-                <button
-                  data-testid="button-nav-get-started"
-                  onClick={() => navigate("/check")}
-                  className="pc-red-glow inline-flex h-10 items-center justify-center rounded-full bg-red-600 px-4 text-sm font-semibold text-white transition hover:bg-red-500 active:translate-y-px"
-                >
-                  Get Started
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       <main id="top">
         <section className="relative min-h-[92vh] pt-16">
@@ -678,60 +633,7 @@ export default function Home() {
           </div>
         </section>
 
-        <footer className="border-t border-white/10 bg-black/55">
-          <div className="pc-container py-14">
-            <div className="grid gap-10 md:grid-cols-12">
-              <div className="md:col-span-4">
-                <div className="text-lg font-semibold">
-                  <span className="text-white">Pathway</span>
-                  <span className="pc-text-gradient">Check</span>
-                </div>
-                <p className="mt-3 text-sm leading-relaxed text-white/70">
-                  Helping high school baseball recruits evaluate playing-time opportunities and make their best-fit
-                  college decision.
-                </p>
-              </div>
-
-              <div className="grid gap-10 sm:grid-cols-3 md:col-span-8">
-                {[
-                  {
-                    title: "Product",
-                    links: ["The Problem", "Solution", "How It Works"],
-                  },
-                  { title: "Resources", links: ["Recruiting Guide", "Questions to Ask", "Glossary"] },
-                  { title: "Company", links: ["About", "Contact", "Privacy"] },
-                ].map((col) => (
-                  <div key={col.title}>
-                    <div className="text-sm font-semibold tracking-[0.18em] text-red-400">{col.title}</div>
-                    <ul className="mt-4 space-y-2">
-                      {col.links.map((l, idx) => (
-                        <li key={l}>
-                          <button
-                            data-testid={`link-footer-${col.title.toLowerCase()}-${idx}`}
-                            onClick={() => {
-                              const match = navLinks.find((x) => x.label === l);
-                              if (match) scrollToId(match.id);
-                            }}
-                            className="text-sm text-white/70 transition hover:text-white"
-                          >
-                            {l}
-                          </button>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between">
-              <div data-testid="text-footer-copyright">
-                © {new Date().getFullYear()} PathwayCheck. All rights reserved.
-              </div>
-              <div className="text-white/55">Built for recruits. Designed for clarity.</div>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </main>
     </div>
   );
