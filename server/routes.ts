@@ -89,7 +89,13 @@ function generatePathwayResults(
   ];
 
   const schoolAnalysis = targetSchools.map((school) => {
-    const schoolVariance = Math.random() * 20 - 10;
+    // Deterministic variance based on school name hash
+    let hash = 0;
+    for (let i = 0; i < school.length; i++) {
+      hash = ((hash << 5) - hash) + school.charCodeAt(i);
+      hash = hash & hash;
+    }
+    const schoolVariance = ((Math.abs(hash) % 2000) / 100) - 10;
     const schoolScore = Math.max(20, Math.min(100, competitionScore + schoolVariance));
 
     let projectedPos: string;

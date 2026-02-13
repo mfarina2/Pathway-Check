@@ -124,7 +124,7 @@ export default function Resources() {
                       {article.author} · {article.date}
                     </span>
                     <Link
-                      href="/resources"
+                      href={`/resources/${article.id}`}
                       data-testid={`link-read-more-${article.id}`}
                       className="flex items-center gap-1 text-sm font-medium text-red-400 transition hover:text-red-300"
                     >

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { apiRequest } from "@/lib/queryClient";
 import { Link } from "wouter";
 import { Mail, Clock, FileText, Send, CheckCircle } from "lucide-react";
 import PageWrapper from "@/components/layout/PageWrapper";
@@ -23,11 +24,23 @@ export default function Contact() {
 
   const canSubmit = form.name && form.email && form.subject && form.message;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!canSubmit) return;
-    setSubmitted(true);
-    setForm({ name: "", email: "", subject: "", message: "" });
+    if (!canSubmit || isSubmitting) return;
+    setIsSubmitting(true);
+    setError("");
+    try {
+      await apiRequest("POST", "/api/contact", form);
+      setSubmitted(true);
+      setForm({ name: "", email: "", subject: "", message: "" });
+    } catch (err: any) {
+      setError(err.message || "Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -119,11 +132,11 @@ export default function Contact() {
                     <button
                       data-testid="button-submit"
                       type="submit"
-                      disabled={!canSubmit}
+                      disabled={!canSubmit || isSubmitting}
                       className="flex w-full items-center justify-center gap-2 rounded-lg bg-red-600 px-6 py-3 font-semibold text-white shadow-lg shadow-red-600/25 transition hover:bg-red-500 disabled:cursor-not-allowed disabled:opacity-50"
                     >
-                      <Send className="h-4 w-4" />
-                      Send Message
+                      {isSubmitting ? "Sending..." : "Send Message"}
+                      {!isSubmitting && <Send className="h-4 w-4" />}
                     </button>
                   </form>
                 )}

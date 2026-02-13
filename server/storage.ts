@@ -4,9 +4,13 @@ import {
   type PathwayCheck,
   type InsertPathwayCheck,
   type PathwayResults,
+  type ContactSubmission,
   users,
   pathwayChecks,
+  contactSubmissions,
+  insertContactSchema,
 } from "@shared/schema";
+import { z } from "zod";
 import { db } from "./db";
 import { eq } from "drizzle-orm";
 
